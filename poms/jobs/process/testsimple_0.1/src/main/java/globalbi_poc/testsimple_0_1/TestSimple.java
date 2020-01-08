@@ -316,10 +316,10 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
     static byte[] commonByteArray_GLOBALBI_POC_TestSimple = new byte[0];
 
 	
-			    public String java;
+			    public String ID;
 
-				public String getJava () {
-					return this.java;
+				public String getID () {
+					return this.ID;
 				}
 				
 
@@ -363,7 +363,7 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 
         		int length = 0;
 		
-					this.java = readString(dis);
+					this.ID = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -385,7 +385,7 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 		
 					// String
 				
-						writeString(this.java,dos);
+						writeString(this.ID,dos);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -400,7 +400,7 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("java="+java);
+		sb.append("ID="+ID);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -408,10 +408,10 @@ public static class row2Struct implements routines.system.IPersistableRow<row2St
         public String toLogString(){
         	StringBuilder sb = new StringBuilder();
         	
-        				if(java == null){
+        				if(ID == null){
         					sb.append("<null>");
         				}else{
-            				sb.append(java);
+            				sb.append(ID);
             			}
             		
         			sb.append("|");
@@ -459,10 +459,10 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
     static byte[] commonByteArray_GLOBALBI_POC_TestSimple = new byte[0];
 
 	
-			    public String java;
+			    public String ID;
 
-				public String getJava () {
-					return this.java;
+				public String getID () {
+					return this.ID;
 				}
 				
 
@@ -506,7 +506,7 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 
         		int length = 0;
 		
-					this.java = readString(dis);
+					this.ID = readString(dis);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -528,7 +528,7 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		
 					// String
 				
-						writeString(this.java,dos);
+						writeString(this.ID,dos);
 					
         	} catch (IOException e) {
 	            throw new RuntimeException(e);
@@ -543,7 +543,7 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
 		sb.append("[");
-		sb.append("java="+java);
+		sb.append("ID="+ID);
 	    sb.append("]");
 
 	    return sb.toString();
@@ -551,10 +551,10 @@ public static class row1Struct implements routines.system.IPersistableRow<row1St
         public String toLogString(){
         	StringBuilder sb = new StringBuilder();
         	
-        				if(java == null){
+        				if(ID == null){
         					sb.append("<null>");
         				}else{
-            				sb.append(java);
+            				sb.append(ID);
             			}
             		
         			sb.append("|");
@@ -700,7 +700,7 @@ row1Struct row2 = row1;
                         log4jParamters_tFileOutputDelimited_1.append(" | ");
                             log4jParamters_tFileOutputDelimited_1.append("DELETE_EMPTYFILE" + " = " + "false");
                         log4jParamters_tFileOutputDelimited_1.append(" | ");
-                            log4jParamters_tFileOutputDelimited_1.append("FILE_EXIST_EXCEPTION" + " = " + "true");
+                            log4jParamters_tFileOutputDelimited_1.append("FILE_EXIST_EXCEPTION" + " = " + "false");
                         log4jParamters_tFileOutputDelimited_1.append(" | ");
                 if(log.isDebugEnabled())
             log.debug("tFileOutputDelimited_1 - "  + (log4jParamters_tFileOutputDelimited_1) );
@@ -741,11 +741,6 @@ String fileName_tFileOutputDelimited_1 = "";
     boolean isFileGenerated_tFileOutputDelimited_1 = true;
     java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
     globalMap.put("tFileOutputDelimited_1_FILE_NAME",fileName_tFileOutputDelimited_1);
-    if(filetFileOutputDelimited_1.exists()){
-            throw new RuntimeException("The particular file \""+filetFileOutputDelimited_1.getAbsoluteFile() +
-            "\" already exist. If you want to overwrite the file, please uncheck the" + 
-            " \"Throw an error if the file already exist\" option in Advanced settings.");
-        }
             int nb_line_tFileOutputDelimited_1 = 0;
             int splitedFileNo_tFileOutputDelimited_1 = 0;
             int currentRow_tFileOutputDelimited_1 = 0;
@@ -774,7 +769,7 @@ String fileName_tFileOutputDelimited_1 = "";
                         outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
                         new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false),"ISO-8859-15"));
                                     if(filetFileOutputDelimited_1.length()==0){
-                                        outtFileOutputDelimited_1.write("java");
+                                        outtFileOutputDelimited_1.write("ID");
                                         outtFileOutputDelimited_1.write(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
                                         outtFileOutputDelimited_1.flush();
                                     }
@@ -837,21 +832,17 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
                     public void limitLog4jByte() throws Exception{
                     StringBuilder log4jParamters_tLogRow_1 = new StringBuilder();
                     log4jParamters_tLogRow_1.append("Parameters:");
-                            log4jParamters_tLogRow_1.append("BASIC_MODE" + " = " + "true");
+                            log4jParamters_tLogRow_1.append("BASIC_MODE" + " = " + "false");
                         log4jParamters_tLogRow_1.append(" | ");
                             log4jParamters_tLogRow_1.append("TABLE_PRINT" + " = " + "false");
                         log4jParamters_tLogRow_1.append(" | ");
-                            log4jParamters_tLogRow_1.append("VERTICAL" + " = " + "false");
+                            log4jParamters_tLogRow_1.append("VERTICAL" + " = " + "true");
                         log4jParamters_tLogRow_1.append(" | ");
-                            log4jParamters_tLogRow_1.append("FIELDSEPARATOR" + " = " + "\"|\"");
+                            log4jParamters_tLogRow_1.append("PRINT_UNIQUE" + " = " + "true");
                         log4jParamters_tLogRow_1.append(" | ");
-                            log4jParamters_tLogRow_1.append("PRINT_HEADER" + " = " + "false");
+                            log4jParamters_tLogRow_1.append("PRINT_LABEL" + " = " + "false");
                         log4jParamters_tLogRow_1.append(" | ");
-                            log4jParamters_tLogRow_1.append("PRINT_UNIQUE_NAME" + " = " + "false");
-                        log4jParamters_tLogRow_1.append(" | ");
-                            log4jParamters_tLogRow_1.append("PRINT_COLNAMES" + " = " + "false");
-                        log4jParamters_tLogRow_1.append(" | ");
-                            log4jParamters_tLogRow_1.append("USE_FIXED_LENGTH" + " = " + "false");
+                            log4jParamters_tLogRow_1.append("PRINT_UNIQUE_LABEL" + " = " + "false");
                         log4jParamters_tLogRow_1.append(" | ");
                             log4jParamters_tLogRow_1.append("PRINT_CONTENT_WITH_LOG4J" + " = " + "true");
                         log4jParamters_tLogRow_1.append(" | ");
@@ -868,9 +859,111 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 			
 
 	///////////////////////
+		
+
+
+	class Util_tLogRow_1 {
 	
-		final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
-		java.io.PrintStream consoleOut_tLogRow_1 = null;	
+		String[] des_top = { ".", "-" };
+
+        String[] des_data = { "-", "+" };
+
+        String[] des_frame = { "|" }; 
+        
+        public void printLine(StringBuilder sb, int titleWidth, int dataWidth){
+        
+        	sb.append("+");
+			for(int i=0; i<titleWidth+2; i++)
+				sb.append("-");
+			sb.append("+");
+			for(int i=0; i<dataWidth+2; i++)
+				sb.append("-");
+        	sb.append("+" + "\n");
+        }      
+
+		public String print(String[] row, int nbLine){
+			
+			StringBuilder sb = new StringBuilder();
+			
+			    String title = "#" + nbLine + ". " + "tLogRow_1";
+			    
+		
+			//step 1: get the max length of all the row[] member;
+			int dataWidth = 5;		//the length of the string "value"	
+			for(int i=0;i<row.length;i++) {
+				if(row[i] == null && 4 > dataWidth) {
+					dataWidth = 4;
+				}
+				else if(row[i] != null && row[i].length()>dataWidth) 
+					dataWidth = row[i].length();
+			}			
+						
+			int titleWidth = 3;
+			
+			int totalWidth = dataWidth + titleWidth + 5;
+			
+			//step 2: print the header with line number
+			sb.append(".");
+			for(int i=0 ; i<totalWidth ; i++)
+				sb.append("-");			
+			sb.append("." + "\n" + "|");
+			
+			int emptyCenterWidth = (totalWidth-title.length())/2;
+			for(int i=0 ; i<emptyCenterWidth; i++)
+				sb.append(" ");	
+			sb.append(title);
+			for(int i=0 ; i<totalWidth - emptyCenterWidth - title.length() ; i++)
+				sb.append(" ");	
+			sb.append("|" + "\n");
+			
+			//step 3: print "key" and "value"			
+			printLine(sb,titleWidth,dataWidth);
+			
+			sb.append("|" + " key");
+			for(int i=0; i<titleWidth-2; i++)
+				sb.append(" ");
+        	sb.append("|" + " value");
+			for(int i=0; i<dataWidth-4; i++)
+				sb.append(" ");
+			sb.append("|" + "\n");
+			
+			printLine(sb,titleWidth,dataWidth);
+			
+			//step 4: print dataset
+			
+			//for(int i=0; i<row.length; i++){
+				sb.append("| " + "ID");
+				for(int i=0; i<titleWidth -"ID".length()+ 1 ;i++)
+					sb.append(" ");
+				sb.append("| " + row[0]);
+				for(int i=0; row[0] == null && i<dataWidth - 3 || row[0] != null && i<dataWidth -row[0].length()+ 1 ;i++)
+					sb.append(" ");
+				sb.append("|" + "\n");
+			
+			//}
+
+			
+			//step 5: print a line gap
+			printLine(sb,titleWidth,dataWidth);
+			return sb.toString();
+
+		}
+
+
+	}
+
+	Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
+
+
+
+
+	java.io.PrintStream consoleOut_tLogRow_1 = null;
+	if (globalMap.get("tLogRow_CONSOLE")!=null){
+        consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
+    }else{
+        consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
+        globalMap.put("tLogRow_CONSOLE",consoleOut_tLogRow_1);
+    }
 
  		StringBuilder strBuffer_tLogRow_1 = null;
 		int nb_line_tLogRow_1 = 0;
@@ -915,13 +1008,13 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 	int nb_line_tFixedFlowInput_1 = 0;
 	List<row1Struct> cacheList_tFixedFlowInput_1 = new java.util.ArrayList<row1Struct>();
 	row1 = new row1Struct();        	            	
-	row1.java = "1";
+	row1.ID = "1";
 	cacheList_tFixedFlowInput_1.add(row1);
 	row1 = new row1Struct();        	            	
-	row1.java = "3";
+	row1.ID = "2";
 	cacheList_tFixedFlowInput_1.add(row1);
 	row1 = new row1Struct();        	            	
-	row1.java = "2";
+	row1.ID = "3";
 	cacheList_tFixedFlowInput_1.add(row1);
 	for (int i_tFixedFlowInput_1 = 0 ; i_tFixedFlowInput_1 < 1 ; i_tFixedFlowInput_1++) {	
 		for(row1Struct tmpRow_tFixedFlowInput_1 : cacheList_tFixedFlowInput_1){
@@ -1023,31 +1116,31 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 
 
    				
-	    		if(row1.java != null) { //              
+	    		if(row1.ID != null) { //              
                     							
        
 				strBuffer_tLogRow_1.append(
-				                String.valueOf(row1.java)							
+				                String.valueOf(row1.ID)							
 				);
 
 
 							
 	    		} //  			
- 
 
-                    if (globalMap.get("tLogRow_CONSOLE")!=null)
-                    {
-                    	consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-                    }
-                    else
-                    {
-                    	consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-                    	globalMap.put("tLogRow_CONSOLE",consoleOut_tLogRow_1);
-                    }
-                    	log.info("tLogRow_1 - Content of row "+(nb_line_tLogRow_1+1)+": " + strBuffer_tLogRow_1.toString());
-                    consoleOut_tLogRow_1.println(strBuffer_tLogRow_1.toString());
-                    consoleOut_tLogRow_1.flush();
-                    nb_line_tLogRow_1++;
+				
+				String[] row_tLogRow_1 = new String[1];
+   				
+	    		if(row1.ID != null) { //              
+                 row_tLogRow_1[0]=    						    
+				                String.valueOf(row1.ID)			
+					          ;	
+							
+	    		} //			
+    			
+				nb_line_tLogRow_1++;
+                consoleOut_tLogRow_1.println(util_tLogRow_1.print(row_tLogRow_1,nb_line_tLogRow_1));
+                consoleOut_tLogRow_1.flush();
+                	log.info("tLogRow_1 - Content of row "+nb_line_tLogRow_1+": " + TalendString.unionString("|",row_tLogRow_1));
 //////
 
 //////                    
@@ -1123,9 +1216,9 @@ resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1
 
 
                     StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
-                            if(row2.java != null) {
+                            if(row2.ID != null) {
                         sb_tFileOutputDelimited_1.append(
-                            row2.java
+                            row2.ID
                         );
                             }
                     sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
@@ -2228,6 +2321,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     60357 characters generated by Talend Cloud Real-Time Big Data Platform 
- *     on the December 12, 2019 10:37:23 AM GMT
+ *     61997 characters generated by Talend Cloud Real-Time Big Data Platform 
+ *     on the December 18, 2019 9:30:20 AM GMT
  ************************************************************************************************/

@@ -243,6 +243,7 @@
                 <include>org.talend.libraries:job-audit:jar:1.0</include>
                 <include>org.talend.libraries:org.talend.dataquality.parser:jar:6.0.0</include>
                 <include>org.talend.libraries:talendcsv:jar:6.0.0</include>
+                <include>org.talend.libraries:junit:jar:6.0.0</include>
                 <include>org.example.globalbi_poc.code:routines:jar:7.2.1</include>
             </includes>
             <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
@@ -270,6 +271,7 @@
             <outputDirectory>${talend.job.name}</outputDirectory>
             <includes>
                 <include>org.example.globalbi_poc.job:TestSimple:jar:0.1.0</include>
+                <include>org.example.globalbi_poc.job:TestSimpleTest:jar:0.1.0</include>
             </includes>
             <outputFileNameMapping>${artifact.build.finalName}.${artifact.extension}</outputFileNameMapping>
             <useProjectArtifact>true</useProjectArtifact>
